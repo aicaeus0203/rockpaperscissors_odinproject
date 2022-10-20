@@ -65,4 +65,15 @@ function playRound(player, computer){
     return result;
 }
 
+function displayResult(result, player, computer){
+ if(result == 'win'){
+    console.log('You win the round!' + ' ' + player + ' ' + 'beats' + ' ' + computer);
+ }
+ if(result == 'lose'){
+    console.log('You lose the round!' + ' ' + player + ' ' + 'loses to' + ' ' + computer);
+ }
+ if(result == 'draw'){
+    console.log('You draw the round!' + ' ' + player + ' ' + 'draws to' + ' ' + computer);
+ }
+}
 
