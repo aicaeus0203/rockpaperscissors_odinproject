@@ -68,12 +68,42 @@ function playRound(player, computer){
 function displayResult(result, player, computer){
  if(result == 'win'){
     console.log('You win the round!' + ' ' + player + ' ' + 'beats' + ' ' + computer);
+    return 1;
  }
  if(result == 'lose'){
     console.log('You lose the round!' + ' ' + player + ' ' + 'loses to' + ' ' + computer);
+    return -1;
  }
  if(result == 'draw'){
     console.log('You draw the round!' + ' ' + player + ' ' + 'draws to' + ' ' + computer);
+    return 0;
  }
+}
+
+function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+    let roundCounter = 0;
+    while((playerScore < 3) || (computerChoice < 3)){
+        roundCounter++;
+        let computerChoice = getComputerChoice();
+        let playerChoice = prompt().toLowerCase(); 
+        let score = displayResult(playRound(playerChoice,computerChoice),playerChoice,computerChoice);
+        if(score == 1){
+            playerScore += 1;
+        }
+        if(score == -1){
+            computerScore += 1;
+        }
+        console.log('Round number: ' + ' ' + roundCounter);
+        console.log('Score:' + ' ' + playerScore + ' - ' + computerScore);
+    }  
+
+    if(playerScore > computerScore){
+        console.log('Congratz! You win the game!');
+    }   else{
+        console.log('UnluckerZ... You lose the game');
+    }
+    
 }
 
